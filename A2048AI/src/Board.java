@@ -5,6 +5,7 @@ public class Board {
 	public int[][] board; // holds state of game
 	private Random rnd = new Random(); // setup random # generator
 	private int size;
+	public int score;
 	
 	
 	public Board() {
@@ -14,6 +15,7 @@ public class Board {
 		populateOne();
 		populateOne();
 		size = 2;
+		score = 0;
 	}
 
 	public String toString() {
@@ -210,6 +212,7 @@ public class Board {
 			for(int i = board[0].length-1; i > 0; i--){
 				if(board[j][i] == board[j][i-1]) {
 					board[j][i] += board[j][i-1];
+					score+=board[j][i];
 					board[j][i-1] = 0;
 				}
 			}
@@ -228,6 +231,7 @@ public class Board {
 			for(int i = 0; i < board[0].length-1; i++){
 				if(board[j][i] == board[j][i+1]) {
 					board[j][i] += board[j][i+1];
+					score+=board[j][i];
 					board[j][i+1] = 0;
 				}
 			}

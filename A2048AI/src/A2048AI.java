@@ -9,6 +9,8 @@ public class A2048AI {
         Board b = new Board();
 
         while(possibleMoves(b.board).size() != 0){
+            System.out.println(b);
+            System.out.println();
             switch(nextMove(b.board)){
                 case 0:
                     b.left();
@@ -24,14 +26,15 @@ public class A2048AI {
                     break;
             }
             b.populateOne();
-            System.out.println(b);
-            System.out.println();
+            
         }
+        System.out.println(b);
+        System.out.println(b.score);
 
     }
 
     public static int nextMove(int[][] b){
-        return (int) Expectimax(b, 3, true)[0];
+        return (int) Expectimax(b, 4, true)[0];
     }
     
     public static double[] Expectimax(int[][] board, int depth, boolean playerTurn){
